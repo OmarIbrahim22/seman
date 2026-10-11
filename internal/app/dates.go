@@ -22,13 +22,13 @@ func weekLabel(start time.Time, span int) string {
 		return "All Weeks"
 	}
 	if span <= 1 {
-		weekNum, _ := start.ISOWeek()
+		_, weekNum := start.ISOWeek()
 		end := start.AddDate(0, 0, 6)
 		return "Week " + strconv.Itoa(weekNum) + " - " + start.Format("Jan 2") + " - " + end.Format("Jan 2, 2006")
 	}
 	end := start.AddDate(0, 0, span*7-1)
-	startWeek, _ := start.ISOWeek()
-	endWeek, _ := end.ISOWeek()
+	_, startWeek := start.ISOWeek()
+	_, endWeek := end.ISOWeek()
 	return fmt.Sprintf("Weeks %d-%d - %s - %s", startWeek, endWeek, start.Format("Jan 2"), end.Format("Jan 2, 2006"))
 }
 
