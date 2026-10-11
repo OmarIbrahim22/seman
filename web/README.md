@@ -38,9 +38,11 @@ copies; the build passes it with `-modfile`, so the regular `go.mod`, and
 
 ## Hosting
 
-`web/site` is a plain static folder once built, so any static host works.
-`seman.wasm` and `wasm_exec.js` are build output and are not committed; run
-`./web/build.sh` before uploading.
+`.github/workflows/pages.yml` builds the site and publishes `web/site` to GitHub
+Pages on every push to `main`. Pages has to be switched on once in the
+repository settings (Settings → Pages → Source: GitHub Actions).
+
+`seman.wasm` and `wasm_exec.js` are build output and are not committed.
 
 ## Licences
 
