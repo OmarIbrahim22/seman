@@ -5,62 +5,62 @@ import (
 	"strings"
 	"time"
 
+	"github.com/OmarIbrahim22/seman/internal/models"
+	"github.com/OmarIbrahim22/seman/internal/storage"
+	"github.com/OmarIbrahim22/seman/internal/style"
+	"github.com/OmarIbrahim22/seman/internal/ui/components"
+	"github.com/OmarIbrahim22/seman/internal/ui/screens"
 	"github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/romanguyen/seman/internal/models"
-	"github.com/romanguyen/seman/internal/storage"
-	"github.com/romanguyen/seman/internal/style"
-	"github.com/romanguyen/seman/internal/ui/components"
-	"github.com/romanguyen/seman/internal/ui/screens"
 )
 
 type Model struct {
-	width           int
-	height          int
-	activeTab       int
-	checklist       viewport.Model
-	checklistItems  []models.ChecklistItem
-	checklistCursor int
-	todoVisible     []int
-	projects        []models.ProjectItem
-	projectVisible  []int
-	subjects        []models.SubjectItem
-	selectedSubj         int
-	examCursor           int
-	subjectFilters       []string
-	filterModalActive    []bool
-	filterModalCursor    int
-	flatExams            []models.FlatExam
-	weekLabel          string
-	weekStart       time.Time
-	weeklyExams     []string
-	projectCursor   int
-	confirmOn        bool
-	weekSpan         int
-	previousWeekSpan int
-	lofi            lofiState
-	lofiPlaylist    []models.LofiTrack
-	lofiCursor      int
-	lofiOffset      int
-	lofiListHeight  int
-	lofiNow         int
-	lofiReload      bool
-	themeName       string
-	modal            modalKind
-	formFields       []formField
-	formFocus        int
-	modalTitle       string
-	modalHint        string
-	modalError       string
-	dropdownMatches  []string
-	dropdownCursor   int
-	confirmAction   confirmAction
-	editSubjectIdx  int
-	editExamIdx     int
-	editProjectIdx  int
-	editTodoIdx     int
-	store           storage.Store
-	undoStack       []undoSnapshot
+	width             int
+	height            int
+	activeTab         int
+	checklist         viewport.Model
+	checklistItems    []models.ChecklistItem
+	checklistCursor   int
+	todoVisible       []int
+	projects          []models.ProjectItem
+	projectVisible    []int
+	subjects          []models.SubjectItem
+	selectedSubj      int
+	examCursor        int
+	subjectFilters    []string
+	filterModalActive []bool
+	filterModalCursor int
+	flatExams         []models.FlatExam
+	weekLabel         string
+	weekStart         time.Time
+	weeklyExams       []string
+	projectCursor     int
+	confirmOn         bool
+	weekSpan          int
+	previousWeekSpan  int
+	lofi              lofiState
+	lofiPlaylist      []models.LofiTrack
+	lofiCursor        int
+	lofiOffset        int
+	lofiListHeight    int
+	lofiNow           int
+	lofiReload        bool
+	themeName         string
+	modal             modalKind
+	formFields        []formField
+	formFocus         int
+	modalTitle        string
+	modalHint         string
+	modalError        string
+	dropdownMatches   []string
+	dropdownCursor    int
+	confirmAction     confirmAction
+	editSubjectIdx    int
+	editExamIdx       int
+	editProjectIdx    int
+	editTodoIdx       int
+	store             storage.Store
+	undoStack         []undoSnapshot
 }
 
 const (
@@ -838,8 +838,8 @@ func (m Model) viewState() screens.State {
 		Projects:      visibleProjects,
 		Subjects:      m.subjects,
 		SelectedSubj:  m.selectedSubj,
-		ExamCursor:        m.examCursor,
-		FlatExams:         m.flatExams,
+		ExamCursor:    m.examCursor,
+		FlatExams:     m.flatExams,
 		WeekLabel:     m.weekLabel,
 		FilterStart:   start,
 		FilterEnd:     end,

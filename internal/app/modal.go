@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/OmarIbrahim22/seman/internal/models"
+	"github.com/OmarIbrahim22/seman/internal/style"
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/romanguyen/seman/internal/models"
-	"github.com/romanguyen/seman/internal/style"
 )
 
 type modalKind int

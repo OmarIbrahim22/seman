@@ -3,8 +3,8 @@ package components
 import (
 	"fmt"
 
+	"github.com/OmarIbrahim22/seman/internal/style"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/romanguyen/seman/internal/style"
 )
 
 // Tab ID constants kept in sync with app/model.go.

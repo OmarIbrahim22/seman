@@ -3,8 +3,8 @@ package components
 import (
 	"time"
 
+	"github.com/OmarIbrahim22/seman/internal/style"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/romanguyen/seman/internal/style"
 )
 
 func RenderHeader(width int, t style.Theme) string {

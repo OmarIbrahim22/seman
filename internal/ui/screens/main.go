@@ -1,9 +1,9 @@
 package screens
 
 import (
+	"github.com/OmarIbrahim22/seman/internal/style"
+	"github.com/OmarIbrahim22/seman/internal/ui/components"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/romanguyen/seman/internal/style"
-	"github.com/romanguyen/seman/internal/ui/components"
 )
 
 func RenderMain(state State, width, height int, t style.Theme) string {

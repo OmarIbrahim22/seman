@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/romanguyen/seman/internal/models"
-	"github.com/romanguyen/seman/internal/style"
+	"github.com/OmarIbrahim22/seman/internal/models"
+	"github.com/OmarIbrahim22/seman/internal/style"
 )
 
 type upcomingExam struct {

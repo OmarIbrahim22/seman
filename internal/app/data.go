@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/romanguyen/seman/internal/models"
-	"github.com/romanguyen/seman/internal/storage"
+	"github.com/OmarIbrahim22/seman/internal/models"
+	"github.com/OmarIbrahim22/seman/internal/storage"
 )
 
 func DefaultData() storage.SemesterData {

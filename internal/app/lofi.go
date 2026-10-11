@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/OmarIbrahim22/seman/internal/models"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/romanguyen/seman/internal/models"
 )
 
 const (

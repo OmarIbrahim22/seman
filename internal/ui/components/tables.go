@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/romanguyen/seman/internal/models"
-	"github.com/romanguyen/seman/internal/style"
+	"github.com/OmarIbrahim22/seman/internal/models"
+	"github.com/OmarIbrahim22/seman/internal/style"
 )
 
 func RenderProjectsTable(items []models.ProjectItem, selected, width int, t style.Theme) string {

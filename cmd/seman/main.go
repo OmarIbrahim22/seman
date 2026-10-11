@@ -5,9 +5,9 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/OmarIbrahim22/seman/internal/app"
+	"github.com/OmarIbrahim22/seman/internal/storage"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/romanguyen/seman/internal/app"
-	"github.com/romanguyen/seman/internal/storage"
 )
 
 func main() {

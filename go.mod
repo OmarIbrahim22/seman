@@ -1,4 +1,4 @@
-module github.com/romanguyen/seman
+module github.com/OmarIbrahim22/seman
 
 go 1.21
 

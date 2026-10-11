@@ -5,21 +5,21 @@ Terminal-based student planner. Manage exams, todos, projects and subjects from 
 ## Install
 
 ```bash
-go install github.com/romanguyen/seman/cmd/seman@latest
+go install github.com/OmarIbrahim22/seman/cmd/seman@latest
 ```
 
 Make sure `$GOPATH/bin` is in your PATH (one-time setup):
 
 ```bash
 export PATH=$PATH:$(go env GOPATH)/bin
-go install github.com/romanguyen/seman/cmd/seman@release
+go install github.com/OmarIbrahim22/seman/cmd/seman@release
 
 ```
 
 Or build from source:
 
 ```bash
-git clone git@github.com:romanguyen/seman.git
+git clone git@github.com:OmarIbrahim22/seman.git
 cd seman
 go install ./cmd/seman
 ```

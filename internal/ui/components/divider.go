@@ -3,7 +3,7 @@ package components
 import (
 	"strings"
 
-	"github.com/romanguyen/seman/internal/style"
+	"github.com/OmarIbrahim22/seman/internal/style"
 )
 
 func RenderDivider(width int, t style.Theme) string {

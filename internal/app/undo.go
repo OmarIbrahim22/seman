@@ -1,6 +1,6 @@
 package app
 
-import "github.com/romanguyen/seman/internal/models"
+import "github.com/OmarIbrahim22/seman/internal/models"
 
 const maxUndoStack = 50
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/OmarIbrahim22/seman/internal/style"
 	"github.com/charmbracelet/lipgloss"
-	"github.com/romanguyen/seman/internal/style"
 )
 
 func RenderWeekHeader(label string, width int, t style.Theme) string {

@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/romanguyen/seman/internal/models"
+import "github.com/OmarIbrahim22/seman/internal/models"
 
 type SemesterData struct {
 	Subjects    []models.SubjectItem   `json:"subjects"`
