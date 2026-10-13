@@ -12,6 +12,7 @@
 
   var win = document.getElementById("window");
   var fullButton = document.getElementById("fullscreen");
+  var savedScroll = 0;
   var lineRatio = 1.25; // row height / font size, measured once the terminal is open
   var screen = document.getElementById("screen");
   var loading = document.getElementById("loading");
@@ -53,11 +54,22 @@
   }
 
   function setFull(on) {
+    // The window leaves the page flow while it is fullscreen. Hold its place
+    // and put the scroll position back afterwards, so the page does not jump.
+    var slot = win.parentElement;
+    if (on) {
+      savedScroll = window.scrollY;
+      slot.style.minHeight = slot.offsetHeight + "px";
+    }
     win.classList.toggle("full", on);
     document.body.classList.toggle("locked", on);
     fullButton.textContent = on ? "Exit fullscreen" : "Fullscreen";
     applyLayout();
-    term.focus();
+    if (!on) {
+      slot.style.minHeight = "";
+      window.scrollTo({ top: savedScroll, behavior: "instant" });
+    }
+    term.focus({ preventScroll: true });
   }
 
   function toggleFull() {
@@ -102,8 +114,14 @@
     fullButton.addEventListener("click", toggleFull);
     document.addEventListener("fullscreenchange", function () {
       // Leaving browser fullscreen (Esc, F11) also restores the page layout.
-      if (!document.fullscreenElement && win.classList.contains("full")) setFull(false);
-      else applyLayout();
+      if (document.fullscreenElement) { applyLayout(); return; }
+      if (win.classList.contains("full")) setFull(false);
+      // The browser moves the page once more when it finishes leaving
+      // fullscreen, so restore the position again after it has settled.
+      requestAnimationFrame(function () {
+        applyLayout();
+        window.scrollTo({ top: savedScroll, behavior: "instant" });
+      });
     });
 
     // Called from Go.

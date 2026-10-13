@@ -29,7 +29,9 @@ body {
 a { color: inherit; }
 p, h1, h2, h3 { margin: 0; }
 
-.page { position: relative; overflow: hidden; }
+/* clip, not hidden: a hidden box is still scrollable, and jumping to a section
+   would scroll the glows' overflow and push the top bar out of view. */
+.page { position: relative; overflow: hidden; overflow: clip; }
 .wrap { position: relative; max-width: 1440px; margin-inline: auto; padding-inline: var(--gutter); }
 
 /* The two soft purple glows behind the hero and the end of the page. */
