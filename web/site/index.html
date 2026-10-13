@@ -7,113 +7,129 @@
 <meta name="description" content="seman is a keyboard-driven student planner for the terminal: exams, todos, projects and subjects in one weekly view. Try the real app in your browser.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="vendor/xterm.css">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
+<div class="page">
+  <div class="glow glow-hero" aria-hidden="true"></div>
+  <div class="glow glow-bottom" aria-hidden="true"></div>
 
-<header class="hero wrap">
-  <p class="eyebrow">Go · Bubble Tea · WebAssembly</p>
-  <h1>seman</h1>
-  <p class="lede">A semester manager that lives in your terminal. Exams, todos, projects and subjects in one weekly view, driven entirely from the keyboard.</p>
-  <p class="actions">
-    <a class="btn primary" href="#demo">Try it in your browser</a>
-    <a class="btn" href="https://github.com/OmarIbrahim22/seman">Source on GitHub</a>
-  </p>
-</header>
+  <nav class="topbar wrap" aria-label="Sections">
+    <a href="#demo" data-section="demo" class="active">[1] Demo</a>
+    <a href="#features" data-section="features">[2] Features</a>
+    <a href="#install" data-section="install">[3] Install</a>
+    <a href="#about" data-section="about">[4] About</a>
+  </nav>
 
-<main>
-<section id="demo" class="wrap">
-  <div class="window" id="window">
-    <div class="titlebar">
-      <span class="title">Live demo — the real app, running in this tab</span>
-      <button id="fullscreen" type="button" title="Give the app the whole screen">Fullscreen</button>
-      <button id="reset" type="button" title="Throw away your changes and load the sample semester again">Reset demo data</button>
-    </div>
-    <div id="screen">
-      <div id="terminal"></div>
-      <div id="loading">Loading seman…</div>
-    </div>
-    <div class="keys" aria-label="On-screen keys">
-      <div class="keygroup">
-        <span class="label">Tabs</span>
-        <button data-key="1">1 Dashboard</button>
-        <button data-key="2">2 Subjects</button>
-        <button data-key="3">3 Exams</button>
-        <button data-key="4">4 Todos</button>
-        <button data-key="5">5 Projects</button>
-        <button data-key="6">6 Settings</button>
+  <header class="hero wrap">
+    <h1 class="wordmark">seman</h1>
+    <p class="tagline">A semester manager that lives in your terminal.</p>
+    <p class="hero-buttons">
+      <a class="btn primary" href="#demo">Try it below</a>
+      <a class="btn" href="https://github.com/OmarIbrahim22/seman">Source on GitHub</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="demo" class="wrap">
+      <div class="window" id="window">
+        <div class="terminal-box">
+          <div id="screen">
+            <div id="terminal"></div>
+            <div id="loading">LOADING SEMAN</div>
+          </div>
+        </div>
+        <div class="keyrow">
+          <div class="keys" aria-label="On-screen keys">
+            <div class="keygroup">
+              <button data-key="1" title="Dashboard">1</button>
+              <button data-key="2" title="Subjects">2</button>
+              <button data-key="3" title="Exams">3</button>
+              <button data-key="4" title="Todos">4</button>
+              <button data-key="5" title="Projects">5</button>
+              <button data-key="6" title="Settings">6</button>
+            </div>
+            <div class="keygroup">
+              <button data-key="j" title="Move down">j</button>
+              <button data-key="k" title="Move up">k</button>
+              <button data-key="&#27;[D" title="Previous week">←</button>
+              <button data-key="&#27;[B" title="Move down">↓</button>
+              <button data-key="&#27;[A" title="Move up">↑</button>
+              <button data-key="&#27;[C" title="Next week">→</button>
+            </div>
+            <div class="keygroup">
+              <button data-key="t" title="Jump to today (theme in Settings)">T</button>
+              <button data-key="g" title="This week / all weeks">G</button>
+              <button data-key=" " title="Toggle the selected todo">Space</button>
+              <button data-key="&#27;" title="Cancel">Esc</button>
+            </div>
+          </div>
+          <div class="text-buttons">
+            <button id="fullscreen" type="button" class="link accent">Fullscreen</button>
+            <button id="reset" type="button" class="link" title="Throw away your changes and load the sample semester again">Reset demo data</button>
+          </div>
+        </div>
       </div>
-      <div class="keygroup">
-        <span class="label">Move</span>
-        <button data-key="k">k ↑</button>
-        <button data-key="j">j ↓</button>
-        <button data-key="&#27;[D">← week</button>
-        <button data-key="&#27;[C">week →</button>
-        <button data-key="t">T today</button>
-        <button data-key="g">G all weeks</button>
-        <button data-key=" ">Space toggle</button>
-        <button data-key="&#27;">Esc</button>
+      <p class="hint">Click the terminal and type, or use the keys. Your changes stay in this browser.</p>
+    </section>
+
+    <section id="features" class="wrap">
+      <h2 class="label"><span>[2]</span> Features</h2>
+      <div class="cards">
+        <article class="card">
+          <p class="number">01</p>
+          <h3>Weekly dashboard</h3>
+          <p>See the whole week's exams, todos and deadlines on one screen.</p>
+        </article>
+        <article class="card">
+          <p class="number">02</p>
+          <h3>Exams with retakes</h3>
+          <p>Track every exam's date, priority and retakes, grouped by subject.</p>
+        </article>
+        <article class="card">
+          <p class="number">03</p>
+          <h3>Todos and projects</h3>
+          <p>Keep quick tasks and long-running projects next to each other.</p>
+        </article>
+        <article class="card">
+          <p class="number">04</p>
+          <h3>Keyboard only</h3>
+          <p>Every action is a single key away. The mouse stays where it is.</p>
+        </article>
       </div>
-    </div>
-  </div>
-  <p class="hint">Click the terminal and use your keyboard, or tap the keys above. <span class="narrow">On a small screen, swipe the terminal sideways to see the rest. </span>Everything you change is saved in this browser only.</p>
-</section>
+    </section>
 
-<section class="wrap two">
-  <div>
-    <h2>Things to try</h2>
-    <ol class="try">
-      <li>Press <kbd>4</kbd> for Todos, move with <kbd>j</kbd> / <kbd>k</kbd> and tick one off with <kbd>Space</kbd>.</li>
-      <li>Press <kbd>→</kbd> to look at next week, then <kbd>T</kbd> to jump back to today.</li>
-      <li>Press <kbd>3</kbd> and then <kbd>A</kbd> to add an exam. The subject field autocompletes as you type.</li>
-      <li>Press <kbd>6</kbd> and then <kbd>T</kbd> to cycle through the eight colour themes.</li>
-      <li>Press <kbd>G</kbd> on the dashboard to switch between this week and the whole semester.</li>
-    </ol>
-  </div>
-  <div>
-    <h2>What it does</h2>
-    <ul class="features">
-      <li><strong>Weekly dashboard.</strong> Upcoming exams, open todos and project deadlines for the week you are looking at.</li>
-      <li><strong>Exams with retakes.</strong> Each exam has a date, a priority and its retake dates, grouped by subject.</li>
-      <li><strong>Todos and projects.</strong> Tag them with a subject, filter by it, and add several todos at once with bulk add.</li>
-      <li><strong>Keyboard only.</strong> Every action is one key, and the footer always shows the keys for the current tab.</li>
-      <li><strong>Lofi player.</strong> The terminal version can play a playlist through mpv while you study. It is switched off here because a browser tab cannot start mpv.</li>
-    </ul>
-  </div>
-</section>
+    <section class="wrap priority">
+      <div class="strip">
+        <p>Know what matters this week.</p>
+        <p class="tags"><span class="tag high">HIGH</span><span class="tag med">MED</span><span class="tag low">LOW</span></p>
+      </div>
+    </section>
 
-<section class="wrap">
-  <h2>How it is built</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>The app</h3>
-      <p>About 4,500 lines of Go using Bubble Tea for the update loop and Lip Gloss for layout and themes. Data is one JSON file at <code>~/.local/share/seman/semester.json</code>, behind a small <code>Store</code> interface.</p>
-    </div>
-    <div class="card">
-      <h3>This page</h3>
-      <p>The demo above is not a recording or a rewrite. The same Go code is compiled to WebAssembly, drawn with xterm.js, and the <code>Store</code> interface is backed by <code>localStorage</code> instead of a file. There is no server.</p>
-    </div>
-    <div class="card">
-      <h3>Install it</h3>
-      <p>With Go 1.21 or newer:</p>
-      <pre><code>go install github.com/OmarIbrahim22/seman/cmd/seman@latest
-seman</code></pre>
-    </div>
-  </div>
-</section>
-</main>
+    <section id="install" class="wrap">
+      <h2 class="label"><span>[3]</span> Install</h2>
+      <div class="install-card">
+        <p class="command"><span class="prompt">$</span><code id="command">go install github.com/OmarIbrahim22/seman/cmd/seman@latest</code></p>
+        <button id="copy" type="button">copy</button>
+      </div>
+    </section>
+  </main>
 
-<footer class="wrap">
-  <p>Built by <a href="https://github.com/OmarIbrahim22">Omar Ibrahim</a> and <a href="https://github.com/romanguyen">Duong Nguyen Hoang</a> at Masaryk University, Brno.</p>
-  <p><a href="https://github.com/OmarIbrahim22/seman">github.com/OmarIbrahim22/seman</a></p>
-</footer>
+  <footer id="about">
+    <div class="rule"></div>
+    <div class="footer-row wrap">
+      <p class="hints">[1-4] Jump to section &nbsp; [F] Fullscreen</p>
+      <p>Built by <a href="https://github.com/OmarIbrahim22">Omar Ibrahim</a> and <a href="https://github.com/romanguyen">Duong Nguyen Hoang</a></p>
+    </div>
+  </footer>
+</div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script src="vendor/xterm.js"></script>
 <script src="wasm_exec.js"></script>
-<script src="app.js?v=5"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

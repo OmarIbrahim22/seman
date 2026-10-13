@@ -138,6 +138,50 @@
     });
   });
 
+  // Copy the install command.
+  var copyButton = document.getElementById("copy");
+  copyButton.addEventListener("click", function () {
+    var text = document.getElementById("command").textContent;
+    var done = function () {
+      copyButton.textContent = "copied";
+      setTimeout(function () { copyButton.textContent = "copy"; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { showToast("Could not copy. Select the command instead."); });
+    } else {
+      showToast("Could not copy. Select the command instead.");
+    }
+  });
+
+  // Page shortcuts from the footer: 1-4 jump to a section, F toggles
+  // fullscreen. They only apply while the terminal does not have focus,
+  // because there the same keys belong to seman.
+  var sections = ["demo", "features", "install", "about"];
+  var tabs = document.querySelectorAll(".topbar a");
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    if (term && term.element && term.element.contains(document.activeElement)) return;
+    var index = "1234".indexOf(event.key);
+    if (event.key.length === 1 && index >= 0) {
+      document.getElementById(sections[index]).scrollIntoView();
+    } else if (event.key === "f" || event.key === "F") {
+      toggleFull();
+    }
+  });
+
+  // Highlight the tab of the section currently on screen.
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        tabs.forEach(function (tab) {
+          tab.classList.toggle("active", tab.dataset.section === entry.target.id);
+        });
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    sections.forEach(function (id) { observer.observe(document.getElementById(id)); });
+  }
+
   document.getElementById("reset").addEventListener("click", function () {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* storage blocked */ }
     location.reload();
