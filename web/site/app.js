@@ -171,20 +171,14 @@
     }
   });
 
-  // Page shortcuts from the footer: 1-4 jump to a section, F toggles
-  // fullscreen. They only apply while the terminal does not have focus,
-  // because there the same keys belong to seman.
+  // F toggles fullscreen, but only while the terminal does not have focus,
+  // because there the key belongs to seman.
   var sections = ["demo", "features", "install", "about"];
   var tabs = document.querySelectorAll(".topbar a");
   document.addEventListener("keydown", function (event) {
     if (event.ctrlKey || event.metaKey || event.altKey) return;
     if (term && term.element && term.element.contains(document.activeElement)) return;
-    var index = "1234".indexOf(event.key);
-    if (event.key.length === 1 && index >= 0) {
-      document.getElementById(sections[index]).scrollIntoView();
-    } else if (event.key === "f" || event.key === "F") {
-      toggleFull();
-    }
+    if (event.key === "f" || event.key === "F") toggleFull();
   });
 
   // Highlight the tab of the section currently on screen.

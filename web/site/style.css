@@ -101,7 +101,6 @@ body.locked { overflow: hidden; }
 /* Sections */
 #features { padding-top: 168px; }
 .label { margin-bottom: 24px; font: 13px var(--mono); color: var(--ink); }
-.label span { margin-right: 4px; color: var(--ink-muted); }
 .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .card { min-width: 0; min-height: 264px; padding: 28px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 .number {
